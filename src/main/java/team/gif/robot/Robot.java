@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
+import team.gif.robot.commands.ArcadeDrive;
+import team.gif.robot.commands.TankDrive;
+import team.gif.robot.subsystems.Collector;
+import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
@@ -22,6 +26,8 @@ public class Robot extends TimedRobot {
   private RobotContainer robotContainer;
   private static TelemetryFileLogger telemetryLogger;
   public static EventFileLogger eventLogger;
+  public static DriveTrain driveTrain;
+  public static Collector collector;
   public static OI oi;
 
   public static Pigeon pigeon;
@@ -39,8 +45,12 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
-    oi = new OI();
+    driveTrain = new DriveTrain();
+    collector = new Collector();
+    driveTrain.setDefaultCommand(new TankDrive());
+    // driveTrain.setDefaultCommand(new ArcadeDrive());
     uiSmartDashboard = new UiSmartDashboard();
+    oi = new OI();
 
   }
 
