@@ -18,6 +18,7 @@ import edu.wpi.first.math.util.Units;
  * constants are needed, to reduce verbosity.
  */
     public final class Constants {
-    public static final double COLLECTOR_SPEED = .2;
+    public static final double COLLECTOR_SPEED = 0.75;
+    public static final double DROPPER_SPEED = 0.19;
 
 }

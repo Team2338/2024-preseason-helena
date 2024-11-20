@@ -5,9 +5,8 @@ public abstract class RobotMap {
     public static final int DRIVER_CONTROLLER_ID = 0;
     public static final int AUX_CONTROLLER_ID = 1;
     public static final int TEST_CONTROLLER_ID = 2;
-    public static final int FRONT_LEFT_CIM = 1;
-    public static final int REAR_LEFT_CIM = 6;
-    public static final int FRONT_RIGHT_CIM = 11;
-    public static final int REAR_RIGHT_CIM = 13;
-    public static final int COLLECTOR_ID = 0;
+    public static final int LEFT_CIM = 8;
+    public static final int RIGHT_CIM = 31;
+    public static final int COLLECTOR_ID = 3;
+    public static final int SHOOTER_ID = 6;
 }

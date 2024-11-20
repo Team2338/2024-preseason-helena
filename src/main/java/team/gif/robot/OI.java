@@ -2,8 +2,7 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.CollectBackward;
-import team.gif.robot.commands.CollectForward;
+import team.gif.robot.commands.*;
 
 public class OI {
     /*
@@ -18,6 +17,7 @@ public class OI {
     public final CommandXboxController driver = new CommandXboxController(RobotMap.DRIVER_CONTROLLER_ID);
     public final CommandXboxController aux = new CommandXboxController(RobotMap.AUX_CONTROLLER_ID);
     public final CommandXboxController test = new CommandXboxController(RobotMap.TEST_CONTROLLER_ID);
+
 
     public final Trigger dA = driver.a();
     public final Trigger dB = driver.b();
@@ -88,9 +88,16 @@ public class OI {
          * Simple Test:
          *   aX.onTrue(new PrintCommand("aX"));
          */
+        dStart.and(dBack).onTrue(new ZeroEncoder());
+        aStart.and(dBack).onTrue(new ZeroEncoder());
 
-        dB.whileTrue(new CollectForward());
-        dA.whileTrue(new CollectBackward());
-
+        aRTrigger.whileTrue(new CollectForward());
+        aRBump.whileTrue(new CollectBackward());
+        aX.onTrue(new LiftRamp());
+        aY.onTrue(new LowerRamp());
+        dRTrigger.whileTrue(new CollectForward());
+        dRBump.whileTrue(new CollectBackward());
+        dX.onTrue(new LiftRamp());
+        dY.onTrue(new LowerRamp());
     }
 }

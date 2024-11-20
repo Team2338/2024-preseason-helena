@@ -16,7 +16,10 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
 public class UI {
     public UI() {
-        ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("BAB");
+        ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("Team Helena");
 
+
+        shuffleboardTab.addDouble("Dropper Position", Robot.door::getEncoder);
+        shuffleboardTab.addDouble("Dropper Speed", Robot.door::getDropSpeed);
     }
 }
